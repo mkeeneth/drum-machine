@@ -1,20 +1,20 @@
 const keyToSoundMapping = [
-  { keyCode: 81, key: "Q", id: "Q-div", name: 'sound1' },
-  { keyCode: 87, key: "W", id: "W-div", name: 'sound2'  },
-  { keyCode: 69, key: "E", id: "E-div", name: 'sound3'  },
-  { keyCode: 65, key: "A", id: "A-div", name: 'sound4'  },
-  { keyCode: 83, key: "S", id: "S-div", name: 'sound5'  },
-  { keyCode: 68, key: "D", id: "D-div", name: 'sound6'  },
-  { keyCode: 90, key: "Z", id: "Z-div", name: 'sound7'  },
-  { keyCode: 88, key: "X", id: "X-div", name: 'sound8'  },
-  { keyCode: 67, key: "C", id: "C-div", name: 'sound9'  }
+  { keyCode: 81, key: "Q", id: "Q-div", name: "cowbell-808" },
+  { keyCode: 87, key: "W", id: "W-div", name: "kick-808" },
+  { keyCode: 69, key: "E", id: "E-div", name: "kick-cultivator" },
+  { keyCode: 65, key: "A", id: "A-div", name: "kick-thump" },
+  { keyCode: 83, key: "S", id: "S-div", name: "kick-vinyl02" },
+  { keyCode: 68, key: "D", id: "D-div", name: "openhat-analog" },
+  { keyCode: 90, key: "Z", id: "Z-div", name: "perc-tribal" },
+  { keyCode: 88, key: "X", id: "X-div", name: "snare-808" },
+  { keyCode: 67, key: "C", id: "C-div", name: "tom-chiptune" }
 ];
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-       nowPlaying: ''
+      nowPlaying: ""
     };
 
     // set this constructor scope
@@ -27,9 +27,9 @@ class App extends React.Component {
       key => key.keyCode === e.keyCode
     );
     this.setState({
-        nowPlaying: ` - ${targetSoundLetter[0].name}`
+      nowPlaying: ` - ${targetSoundLetter[0].name}`
     });
-    document.getElementById(targetSoundLetter[0].key).play();
+    this.playAudio(targetSoundLetter[0].key);
   }
 
   clickHandler(e) {
@@ -39,7 +39,27 @@ class App extends React.Component {
     this.setState({
       nowPlaying: ` - ${targetSoundLetter[0].name}`
     });
-    document.getElementById(targetSoundLetter[0].key).play();
+    this.playAudio(targetSoundLetter[0].key);
+  }
+
+  playAudio(key) {
+    let audio = document.getElementById(key);
+    audio.currentTime = 0;
+    audio.play();
+    this.toggleActive(audio);
+  }
+
+  toggleActive(audio) {
+    let addIt = function() {
+      audio.parentElement.classList.add("active");
+    };
+    let removeIt = function() {
+      audio.parentElement.classList.remove("active");
+    };
+    setTimeout(function() {
+      addIt();
+      setTimeout(removeIt, 200);
+    }, 0);
   }
 
   componentDidMount() {
@@ -63,31 +83,76 @@ class App extends React.Component {
 const Buttons = props => (
   <div id="buttons">
     <button className="drum-pad" id="Q-div" onClick={props.clickHandler}>
-      Q<audio class="clip" id="Q" src="https://raw.githubusercontent.com/mkeeneth/drum-machine/master/audio/cowbell-808.wav" />
+      Q
+      <audio
+        class="clip"
+        id="Q"
+        src="https://raw.githubusercontent.com/mkeeneth/drum-machine/master/audio/cowbell-808.wav"
+      />
     </button>
     <button className="drum-pad" id="W-div" onClick={props.clickHandler}>
-      W<audio class="clip" id="W" src="https://raw.githubusercontent.com/mkeeneth/drum-machine/master/audio/kick-808.wav" />
+      W
+      <audio
+        class="clip"
+        id="W"
+        src="https://raw.githubusercontent.com/mkeeneth/drum-machine/master/audio/kick-808.wav"
+      />
     </button>
     <button className="drum-pad" id="E-div" onClick={props.clickHandler}>
-      E<audio class="clip" id="E" src="https://raw.githubusercontent.com/mkeeneth/drum-machine/master/audio/kick-cultivator.wav" />
+      E
+      <audio
+        class="clip"
+        id="E"
+        src="https://raw.githubusercontent.com/mkeeneth/drum-machine/master/audio/kick-cultivator.wav"
+      />
     </button>
     <button className="drum-pad" id="A-div" onClick={props.clickHandler}>
-      A<audio class="clip" id="A" src="https://raw.githubusercontent.com/mkeeneth/drum-machine/master/audio/kick-thump.wav" />
+      A
+      <audio
+        class="clip"
+        id="A"
+        src="https://raw.githubusercontent.com/mkeeneth/drum-machine/master/audio/kick-thump.wav"
+      />
     </button>
     <button className="drum-pad" id="S-div" onClick={props.clickHandler}>
-      S<audio class="clip" id="S" src="https://raw.githubusercontent.com/mkeeneth/drum-machine/master/audio/kick-vinyl02.wav" />
+      S
+      <audio
+        class="clip"
+        id="S"
+        src="https://raw.githubusercontent.com/mkeeneth/drum-machine/master/audio/kick-vinyl02.wav"
+      />
     </button>
     <button className="drum-pad" id="D-div" onClick={props.clickHandler}>
-      D<audio class="clip" id="D" src="https://raw.githubusercontent.com/mkeeneth/drum-machine/master/audio/openhat-analog.wav" />
+      D
+      <audio
+        class="clip"
+        id="D"
+        src="https://raw.githubusercontent.com/mkeeneth/drum-machine/master/audio/openhat-analog.wav"
+      />
     </button>
     <button className="drum-pad" id="Z-div" onClick={props.clickHandler}>
-      Z<audio class="clip" id="Z" src="https://raw.githubusercontent.com/mkeeneth/drum-machine/master/audio/perc-tribal.wav" />
+      Z
+      <audio
+        class="clip"
+        id="Z"
+        src="https://raw.githubusercontent.com/mkeeneth/drum-machine/master/audio/perc-tribal.wav"
+      />
     </button>
     <button className="drum-pad" id="X-div" onClick={props.clickHandler}>
-      X<audio class="clip" id="X" src="https://raw.githubusercontent.com/mkeeneth/drum-machine/master/audio/snare-808.wav" />
+      X
+      <audio
+        class="clip"
+        id="X"
+        src="https://raw.githubusercontent.com/mkeeneth/drum-machine/master/audio/snare-808.wav"
+      />
     </button>
     <button className="drum-pad" id="C-div" onClick={props.clickHandler}>
-      C<audio class="clip" id="C" src="https://raw.githubusercontent.com/mkeeneth/drum-machine/master/audio/tom-chiptune.wav" />
+      C
+      <audio
+        class="clip"
+        id="C"
+        src="https://raw.githubusercontent.com/mkeeneth/drum-machine/master/audio/tom-chiptune.wav"
+      />
     </button>
   </div>
 );

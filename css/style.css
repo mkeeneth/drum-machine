@@ -69,6 +69,6 @@ body {
   outline: 0;
 }
 
-.drum-pad:active {
+.drum-pad:active, .active {
   background: linear-gradient(to bottom, #45484d 0%, #000000 100%);
 }
