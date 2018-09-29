@@ -63,31 +63,31 @@ class App extends React.Component {
 const Buttons = props => (
   <div id="buttons">
     <button className="drum-pad" id="Q-div" onClick={props.clickHandler}>
-      Q<audio class="clip" id="Q" src="https://freesound.org/data/previews/254/254819_4597795-lq.mp3" />
+      Q<audio class="clip" id="Q" src="https://raw.githubusercontent.com/mkeeneth/drum-machine/master/audio/cowbell-808.wav" />
     </button>
     <button className="drum-pad" id="W-div" onClick={props.clickHandler}>
-      W<audio class="clip" id="W" src="https://freesound.org/data/previews/254/254819_4597795-lq.mp3" />
+      W<audio class="clip" id="W" src="https://raw.githubusercontent.com/mkeeneth/drum-machine/master/audio/kick-808.wav" />
     </button>
     <button className="drum-pad" id="E-div" onClick={props.clickHandler}>
-      E<audio class="clip" id="E" src="https://freesound.org/data/previews/254/254819_4597795-lq.mp3" />
+      E<audio class="clip" id="E" src="https://raw.githubusercontent.com/mkeeneth/drum-machine/master/audio/kick-cultivator.wav" />
     </button>
     <button className="drum-pad" id="A-div" onClick={props.clickHandler}>
-      A<audio class="clip" id="A" src="https://freesound.org/data/previews/254/254819_4597795-lq.mp3" />
+      A<audio class="clip" id="A" src="https://raw.githubusercontent.com/mkeeneth/drum-machine/master/audio/kick-thump.wav" />
     </button>
     <button className="drum-pad" id="S-div" onClick={props.clickHandler}>
-      S<audio class="clip" id="S" src="https://freesound.org/data/previews/254/254819_4597795-lq.mp3" />
+      S<audio class="clip" id="S" src="https://raw.githubusercontent.com/mkeeneth/drum-machine/master/audio/kick-vinyl02.wav" />
     </button>
     <button className="drum-pad" id="D-div" onClick={props.clickHandler}>
-      D<audio class="clip" id="D" src="https://freesound.org/data/previews/254/254819_4597795-lq.mp3" />
+      D<audio class="clip" id="D" src="https://raw.githubusercontent.com/mkeeneth/drum-machine/master/audio/openhat-analog.wav" />
     </button>
     <button className="drum-pad" id="Z-div" onClick={props.clickHandler}>
-      Z<audio class="clip" id="Z" src="https://freesound.org/data/previews/254/254819_4597795-lq.mp3" />
+      Z<audio class="clip" id="Z" src="https://raw.githubusercontent.com/mkeeneth/drum-machine/master/audio/perc-tribal.wav" />
     </button>
     <button className="drum-pad" id="X-div" onClick={props.clickHandler}>
-      X<audio class="clip" id="X" src="https://freesound.org/data/previews/254/254819_4597795-lq.mp3" />
+      X<audio class="clip" id="X" src="https://raw.githubusercontent.com/mkeeneth/drum-machine/master/audio/snare-808.wav" />
     </button>
     <button className="drum-pad" id="C-div" onClick={props.clickHandler}>
-      C<audio class="clip" id="C" src="https://freesound.org/data/previews/254/254819_4597795-lq.mp3" />
+      C<audio class="clip" id="C" src="https://raw.githubusercontent.com/mkeeneth/drum-machine/master/audio/tom-chiptune.wav" />
     </button>
   </div>
 );
